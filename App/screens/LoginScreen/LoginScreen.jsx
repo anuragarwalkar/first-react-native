@@ -1,18 +1,17 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Image, StyleSheet } from "react-native";
 import Screen from "../../components/Screen/Screen";
-import AppFormField from "../../components/AppFormField/AppFormField";
-import AppButton from "../../components/Button/Button";
-import { Formik } from "formik";
-import * as Yup from 'yup';
+import * as Yup from "yup";
+import SubmitButton from "../../components/forms/SubmitButton/SubmitButton";
+import AppFormField from "../../components/forms/AppFormField/AppFormField";
+import AppForm from "../../components/forms/AppForm/AppForm";
 
 const validationSchema = Yup.object().shape({
-    email: Yup.string().required().email().label("Email"),
-    password: Yup.string().required().min(4).label("Password")
+  email: Yup.string().required().email().label("Email"),
+  password: Yup.string().required().min(4).label("Password"),
 });
 
 const LoginScreen = () => {
-
   return (
     <Screen style={styles.container}>
       <Image
@@ -20,46 +19,36 @@ const LoginScreen = () => {
         style={styles.logo}
       />
 
-      <Formik
+      <AppForm
         initialValues={{
           email: "",
-          password: ""
+          password: "",
         }}
         onSubmit={(values) => {
-            console.log(values);
-          }}
-        validationSchema={validationSchema}  
-      >
-        {({ handleSubmit }) => {
-            
-          return (
-            <Fragment>
-              <AppFormField
-                name="email"
-                autoCapitalize="none"
-                placeholder="Email"
-                icon="email"
-                autoCorrect={false}
-                keyboardType="email-address"
-                textContentType="emailAddress"
-              />
-              <AppFormField
-                name="password"
-                autoCapitalize="none"
-                autoCorrect={false}
-                icon="lock"
-                placeholder="Password"
-                textContentType="password"
-                secureTextEntry={true}
-              />
-              <AppButton
-                title="Login"
-                onPress={handleSubmit}
-              />
-            </Fragment>
-          );
+          console.log(values);
         }}
-      </Formik>
+        validationSchema={validationSchema}
+      >
+        <AppFormField
+          name="email"
+          autoCapitalize="none"
+          placeholder="Email"
+          icon="email"
+          autoCorrect={false}
+          keyboardType="email-address"
+          textContentType="emailAddress"
+        />
+        <AppFormField
+          name="password"
+          autoCapitalize="none"
+          autoCorrect={false}
+          icon="lock"
+          placeholder="Password"
+          textContentType="password"
+          secureTextEntry={true}
+        />
+        <SubmitButton title="Login" />
+      </AppForm>
     </Screen>
   );
 };
