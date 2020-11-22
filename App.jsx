@@ -1,12 +1,11 @@
 import React, { Fragment } from 'react';
 import { StyleSheet } from 'react-native';
-import ListItem from './App/components/ListItem/ListItem'
+import ListingEditScreen from './App/screens/ListingsEditScreen/ListingsEditScreen';
 
 const App = () => {
   return (
     <Fragment>
-      <ListItem title="Anruag Arwalkar" subTitle="Learning" image={require('./App/assets/AnuragArwalkar.jpg')} />
-      <ListItem title="Anruag Arwalkar" subTitle="Learning" image={require('./App/assets/AnuragArwalkar.jpg')} />
+      <ListingEditScreen />
     </Fragment>
   );
 };

@@ -6,13 +6,13 @@ import AppText from '../AppText/AppText';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import PickerItem from '../PickerItem/PickerItem';
 
-const AppPicker = ({ icon, items, placeholder, selectedItem, onSelectItem }) => {
+const AppPicker = ({ icon, items, placeholder, selectedItem, onSelectItem, width = "100%" }) => {
     const [showModal, setShowModal] = useState(false);
 
     return ( 
         <Fragment>
         <TouchableWithoutFeedback onPress={() => setShowModal(true)}>
-            <View style={styles.container}>
+            <View style={[styles.container, { width }]}>
                 {icon && <MaterialCommunityIcons style={styles.icon} name={icon} size={20} color={colors.medium}/>}
                 <AppText style={styles.text}>{selectedItem ? selectedItem.label : placeholder}</AppText>
                 <MaterialCommunityIcons name="chevron-down" size={20} color={colors.medium}/>
@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         flexDirection: "row",
         alignItems: "center",
-        width: "100%",
         padding: 15,
         marginVertical: 10
     },
