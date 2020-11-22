@@ -4,7 +4,8 @@ import AppPicker from '../../AppPicker/AppPicker';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import { titleCase } from '../../../Utils/utils';
 
-const AppFormPicker = ({ items, name, placeholder, width }) => {
+const AppFormPicker = ({ items, name, placeholder, width,
+    PickerItemComponent, numColumns }) => {
     const { errors, setFieldValue, touched, values } = useFormikContext();
 
     return (
@@ -15,6 +16,8 @@ const AppFormPicker = ({ items, name, placeholder, width }) => {
             placeholder={placeholder}
             selectedItem={values[name]}
             width={width}
+            PickerItemComponent={PickerItemComponent}
+            numColumns={numColumns}
             />
             <ErrorMessage error={errors[titleCase(name)]} visible={touched[name]}/>
         </Fragment>

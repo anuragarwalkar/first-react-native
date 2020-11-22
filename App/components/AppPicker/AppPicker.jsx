@@ -6,7 +6,9 @@ import AppText from '../AppText/AppText';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import PickerItem from '../PickerItem/PickerItem';
 
-const AppPicker = ({ icon, items, placeholder, selectedItem, onSelectItem, width = "100%" }) => {
+const AppPicker = ({ icon, items, placeholder, 
+    selectedItem, onSelectItem, width = "100%",
+     PickerItemComponent = PickerItem, numColumns = 1 }) => {
     const [showModal, setShowModal] = useState(false);
 
     return ( 
@@ -21,15 +23,19 @@ const AppPicker = ({ icon, items, placeholder, selectedItem, onSelectItem, width
         <Modal visible={showModal} animationType="slide">
             <Button onPress={() => setShowModal(false)} title="close"/>
             <FlatList 
+            numColumns={numColumns}
             data={items}
             keyExtractor={(item) => item.value.toString()}
-            renderItem={({item}) => <PickerItem 
+            renderItem={({item}) => (
+            <PickerItemComponent 
+            item={item}
             label={item.label}
+            icon={icon}
             onPress={() => {
                 onSelectItem(item);
                 setShowModal(false);
             }}
-            />}
+            />)}
             />
         </Modal>
         </Fragment>
