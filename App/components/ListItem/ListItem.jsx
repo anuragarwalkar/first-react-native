@@ -13,8 +13,8 @@ export default ({title, IconComponent, subTitle, image, onPress, renderRightActi
                {image && <Image style={styles.image} source={image}/>}
                {IconComponent}
                 <View style={styles.textContainer}>
-                    <AppText style={styles.title}>{title}</AppText>
-                    {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
+                    <AppText style={styles.title} numberOfLines={1}>{title}</AppText>
+                    {subTitle && <AppText numberOfLines={2} style={styles.subTitle}>{subTitle}</AppText>}
                 </View>
                 <MaterialCommunityIcons  name="chevron-right" color={colors.medium} size={25}/>
             </View>
