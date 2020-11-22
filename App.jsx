@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { Fragment } from 'react';
 import { StyleSheet } from 'react-native';
-import ListingEditScreen from './App/screens/ListingsEditScreen/ListingsEditScreen';
+import ListItem from './App/components/ListItem/ListItem'
+
 const App = () => {
   return (
-    <ListingEditScreen />
+    <Fragment>
+      <ListItem title="Anruag Arwalkar" subTitle="Learning" image={require('./App/assets/AnuragArwalkar.jpg')} />
+      <ListItem title="Anruag Arwalkar" subTitle="Learning" image={require('./App/assets/AnuragArwalkar.jpg')} />
+    </Fragment>
   );
 };
 

@@ -3,8 +3,9 @@ import { View, StyleSheet, Image, TouchableHighlight } from 'react-native';
 import colors from '../../config/colors';
 import AppText from '../AppText/AppText';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+import {MaterialCommunityIcons} from '@expo/vector-icons';
 
-export default ({title, IconComponent,subTitle, image, onPress, renderRightActions}) => {
+export default ({title, IconComponent, subTitle, image, onPress, renderRightActions}) => {
     return (
         <Swipeable renderRightActions={renderRightActions}>
         <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
@@ -15,6 +16,7 @@ export default ({title, IconComponent,subTitle, image, onPress, renderRightActio
                     <AppText style={styles.title}>{title}</AppText>
                     {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
                 </View>
+                <MaterialCommunityIcons  name="chevron-right" color={colors.medium} size={25}/>
             </View>
         </TouchableHighlight>
         </Swipeable>
@@ -25,7 +27,8 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         padding: 15,
-        backgroundColor: colors.white
+        backgroundColor: colors.white,
+        alignItems:"center",
     },
     image: {
         width: 70,
@@ -40,6 +43,7 @@ const styles = StyleSheet.create({
     },
     textContainer: {
         marginLeft: 10,
-        justifyContent: "center"
+        justifyContent: "center",
+        flex: 1
     }
 })  
