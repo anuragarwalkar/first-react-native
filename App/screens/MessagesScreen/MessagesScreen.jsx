@@ -39,7 +39,7 @@ const MessagesScreen = () => {
             data={messages}
             keyExtractor={message => message.id.toString() }
             renderItem={({item}) => <ListItem 
-            onPress={() => console.log('anurag')} title={item.title}
+            onPress={() => console.log('onPress message')} title={item.title}
             subTitle={item.description}
             image={item.image}
             renderRightActions={() => < ListItemDeleteAction onPress={() => onDeleteAction(item)}/>}
